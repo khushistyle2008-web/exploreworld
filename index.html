@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f3">
+  <meta name="description" content="Find your next great escape with Roamly. Discover thoughtful trips, beautiful places, and easy trip planning.">
+  <title>Roamly — Find your somewhere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Roamly home"><span class="brand-mark">r</span> roamly<span class="brand-dot">.</span></a>
+    <nav aria-label="Main navigation"><a href="#destinations">Destinations</a><a href="#why-roamly">Why Roamly</a></nav>
+    <button class="saved-link" id="saved-toggle" type="button" aria-pressed="false"><span aria-hidden="true">♡</span> Saved <b id="saved-count">0</b></button>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Find your<br><em>somewhere.</em></h1>
+        <p class="hero-lead">A slower morning. A longer coastline. A place that stays with you. Find a trip that feels like yours.</p>
+        <a class="button button-dark" href="#destinations">Explore trips <span aria-hidden="true">↗</span></a>
+        <div class="hero-foot"><span class="avatar-stack" aria-hidden="true"><i>J</i><i>M</i><i>A</i></span><span><strong>Made for curious people</strong><br>Easy planning, thoughtful stays</span></div>
+      </div>
+      <div class="hero-image" role="img" aria-label="Sunrise over a green coastal landscape">
+        <div class="image-stamp"><span>✳</span><span>GO A LITTLE<br>FURTHER</span></div>
+        <div class="image-caption"><span>Somewhere on the coast</span><span>01 / 04</span></div>
+      </div>
+      <div class="hero-index">45° 26' 08.4" N &nbsp; 12° 20' 12.6" E</div>
+    </section>
+
+    <section class="discover" id="destinations">
+      <div class="section-top"><div><p class="eyebrow">A GOOD PLACE TO BEGIN</p><h2>Trips with a little <em>more soul.</em></h2></div><p class="section-intro">From sea air to mountain mornings, find a few ideas for your next good story.</p></div>
+      <div class="search-row">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Search a place or experience" aria-label="Search destinations"><kbd>⌘ K</kbd></label>
+        <div class="filters" role="group" aria-label="Filter by trip style">
+          <button class="filter active" data-filter="all" aria-pressed="true">All trips</button>
+          <button class="filter" data-filter="coast" aria-pressed="false">☼ &nbsp; Coast</button>
+          <button class="filter" data-filter="culture" aria-pressed="false">⌂ &nbsp; Culture</button>
+          <button class="filter" data-filter="nature" aria-pressed="false">↟ &nbsp; Nature</button>
+        </div>
+      </div>
+      <div class="results-line"><span id="results-count">Showing 6 thoughtful escapes</span><span class="sort-label">HANDPICKED FOR YOU <span>✳</span></span></div>
+      <div class="trip-grid" id="trip-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden><span>✳</span><h3>No trips found just yet</h3><p>Try another destination or clear your search.</p><button class="button button-outline" id="clear-search">Show all trips</button></div>
+    </section>
+
+    <section class="manifesto" id="why-roamly"><div class="manifesto-art" role="img" aria-label="A quiet Mediterranean village beside the sea"><span>TAKE THE SCENIC ROUTE</span></div><div class="manifesto-copy"><p class="eyebrow">A DIFFERENT KIND OF GETAWAY</p><h2>Less itinerary.<br><em>More feeling.</em></h2><p>We think the best trips leave room for the unexpected. Roamly brings together special places, local favourites, and the little details that make getting away feel effortless.</p><div class="promise-list"><div><span>01</span><p><strong>Picked with care</strong><br>Places with a point of view.</p></div><div><span>02</span><p><strong>Easy by design</strong><br>Clear details, no fuss.</p></div><div><span>03</span><p><strong>Room to roam</strong><br>Your trip, your own pace.</p></div></div></div></section>
+
+    <section class="newsletter"><div><p class="eyebrow">A POSTCARD NOW AND THEN</p><h2>A little inspiration<br>for your inbox.</h2></div><form id="newsletter-form"><label class="visually-hidden" for="email-input">Email address</label><input id="email-input" type="email" placeholder="Your email address" required><button type="submit" aria-label="Subscribe">Count me in <span>↗</span></button><p id="newsletter-message" class="form-message" aria-live="polite">No spam, just places worth dreaming about.</p></form></section>
+  </main>
+  <footer><a class="brand" href="#home"><span class="brand-mark">r</span> roamly<span class="brand-dot">.</span></a><span>GO WELL. COME BACK DIFFERENT.</span><a href="#home">Back to top ↑</a></footer>
+
+  <dialog id="booking-dialog" aria-labelledby="dialog-title"><form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Close">×</button></form><p class="eyebrow">LET'S MAKE A PLAN</p><h2 id="dialog-title">A trip to <em id="booking-destination"></em></h2><p class="dialog-description" id="booking-description"></p><form id="booking-form" class="booking-form"><label>Your name<input name="name" autocomplete="name" placeholder="Alex Morgan" required></label><label>Email address<input name="email" type="email" autocomplete="email" placeholder="alex@example.com" required></label><div class="form-split"><label>Travellers<select name="travellers"><option>1 traveller</option><option selected>2 travellers</option><option>3 travellers</option><option>4 travellers</option><option>5+ travellers</option></select></label><label>When<select name="season"><option>I'm flexible</option><option>Spring</option><option>Summer</option><option>Autumn</option><option>Winter</option></select></label></div><button class="button button-dark booking-submit" type="submit">Request this trip <span>↗</span></button><p class="form-message">A demo request only. No payment is taken.</p></form><div class="booking-success" id="booking-success" hidden><span>✳</span><h3>It's on your list.</h3><p id="booking-confirmation"></p><button class="button button-dark" id="close-success" type="button">Lovely, thanks</button></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
